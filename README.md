@@ -1,7 +1,10 @@
 # dropletForDummies
-A guide to create a droplet on Digital Ocean with LEMP Stack + Laravel project for Ubuntu User, assuming a droplet has been deployed and you know how to do ssh :)
+A guide to create a droplet on Digital Ocean with LEMP Stack + Laravel project for Ubuntu User, assuming a droplet has been deployed and you know how to do ssh :) . I have some experiences with Fedora and CentOS but this is my first time installing LEMP stack on ubuntu machine.
 
-## Change SSH port
+## Optional : Create Sudo User
+Taken from https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart, I strongly believe you shouldn't use your root account for everything :) so let's create a user account
+
+## Optional : Change SSH port
 After you managed to connect to your droplet, you should change port number of ssh, because port 22 is very obvious.
 you could look at this link https://www.cyberciti.biz/faq/howto-change-ssh-port-on-linux-or-unix-server/
 
@@ -40,6 +43,19 @@ Don't forget to set your firewall.. I think on default there is no firewall (uh.
 ![firewall](images/firewall.jpg)
 
 
-...to be continue
+## Step 1 : Install Nginx
+I took this link for references, I was too busy to look at the whole documentation so I just google a bit to find references, and I found this.. https://websiteforstudents.com/how-to-install-lemp-on-ubuntu-16-04-18-04-18-10/ , lets try it out
+
+
+`sudo apt update && sudo apt dist-upgrade && sudo apt autoremove`
+
+I believe && is part of chaining in bash/shell, so it consists 3 different instruction. the command above should update packages and second command should update the distro (ubuntu itself) and third command should remove unneccessary packages
+
+```
+sudo apt install nginx
+sudo systemctl enable nginx
+```
+
+it should install nginx for you, and second part to enable it, so it will run as service and should be autostart after you restart your instance
 
 
